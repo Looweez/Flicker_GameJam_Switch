@@ -30,38 +30,27 @@ public class MazeGenerator : MonoBehaviour
 
     void Start()
     {
-        // Increase width and height by 2 every 2 levels
-        // (We use + (currentLevel / 2) * 2 to keep them odd numbers)
-        width = 15 + (GameManager.currentLevel / 2) * 2;
-        height = 15 + (GameManager.currentLevel / 2) * 2;
 
         StartCoroutine(SetupMazeRoutine());
     }
 
     IEnumerator SetupMazeRoutine()
     {
-        // 1. Calculate new size based on level
-        width = 15 + (GameManager.currentLevel / 2) * 2;
-        height = 15 + (GameManager.currentLevel / 2) * 2;
-
-        // 2. Adjust Camera to fit the maze
-        // Orthographic size is half the vertical height of the screen.
-        // We add a little "padding" (2f) so the walls aren't touching the screen edge.
-        Camera.main.orthographicSize = (height / 2f) + 2f;
-
-        // 3. Center the camera on the maze
-        Camera.main.transform.position = new Vector3(width / 2f, height / 2f, -10);
-
+        // 1. Generate the maze first
         GenerateMaze(); 
+    
+        // Wait for the tilemap to finish placing tiles
         yield return new WaitForEndOfFrame();
+    
+        // 2. Place the player, monster, and items
         PlaceObjects();
-        
+    
+        // 3. Fit the camera and background once
         FitCameraToMaze();
-
-        ScaleBackground();
+        //ScaleBackground();  //removed
     }
     
-    void ScaleBackground()
+    /*void ScaleBackground()
     {
         if (backgroundSR == null) return;
 
@@ -82,7 +71,7 @@ public class MazeGenerator : MonoBehaviour
         float targetHeight = bounds.size.y + 3f;
 
         backgroundSR.transform.localScale = new Vector3(targetWidth / spriteWidth, targetHeight / spriteHeight, 1f);
-    }
+    }*/
     
     void FitCameraToMaze()
     {

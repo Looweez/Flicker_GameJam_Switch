@@ -90,15 +90,7 @@ public class MonsterAI : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            Debug.Log("Caught! Resetting...");
-        
-            // Reset the static level counter
-            GameManager.ResetGame();
-        
-            // Reload scene
-            UnityEngine.SceneManagement.SceneManager.LoadScene(
-                UnityEngine.SceneManagement.SceneManager.GetActiveScene().name
-            );
+            FindFirstObjectByType<MenuController>().ShowGameOver();
         }
     }
 }
