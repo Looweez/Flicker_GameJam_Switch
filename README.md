@@ -44,3 +44,23 @@ Art: Hand-drawn backgrounds and sprites by Louise Lee
 Audio: https://pixabay.com/sound-effects/film-special-effects-ruler-flick-98267/, https://pixabay.com/sound-effects/film-special-effects-ui-button-click-5-327756/, https://pixabay.com/sound-effects/film-special-effects-fire-magic-5-378639/, https://pixabay.com/sound-effects/film-special-effects-sci-fi-sound-effect-designed-circuits-hum-24-200825/, https://pixabay.com/sound-effects/household-light-switch-382712/, https://pixabay.com/sound-effects/horror-ghostbreath1-107236/
 
 Development Assistant: Gemini (Google AI) - C# scripting and logic refinement.
+
+AI Ethics & Originality Statement
+
+AI Collaborator: Google Gemini (Generative AI)
+
+1. Statement of Originality
+The core concept, game design, and creative direction of Flicker are the original work of the developer. The unique mechanic where the monster is only visible/audible when the player’s light is deactivated was conceived by the developer. AI was utilized as a technical consultant to translate these creative requirements into functional C# code within the Unity Engine.
+
+2. Fair Use & Transformation
+All code snippets provided by the AI collaborator were based on standard Unity API documentation and public-domain programming patterns. These suggestions were not used "as-is" but were transformed, debugged, and integrated by the developer to fit the specific architectural needs of the project.
+
+3. Ethical Use of AI
+Transparency: The use of AI has been documented throughout the development process, including a dedicated section in the README.md and refinements-changes.md files.
+
+Human Oversight: Every line of code generated via AI was reviewed for logic, security, and performance. The developer maintained full control over the project's "Save/Load" logic (PlayerPrefs) and scene transitions.
+
+Asset Integrity: While AI assisted in the logic for audio triggers and sprite toggling, all visual assets (pixel art) and audio files were sourced or created independently by the developer, ensuring no copyright infringement via AI-generated imagery.
+
+4. Conclusion
+The developer asserts that Google Gemini functioned as a "Pair Programmer." This collaboration allowed the developer to focus on high-level game design and atmospheric balancing while using the AI to overcome technical hurdles and boilerplate implementation. The final product is a result of human-led creative decision-making.
