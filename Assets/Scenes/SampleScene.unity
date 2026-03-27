@@ -2313,10 +2313,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -2743,7 +2743,6 @@ MonoBehaviour:
   lightSwitch: {fileID: 8300000, guid: ed2b74872cf68974ca6b920c72acafa1, type: 3}
   pickupSound: {fileID: 8300000, guid: a01317820884235429e081c9e0939ff5, type: 3}
   monsterBreath: {fileID: 8300000, guid: 9e651700a42b7e9428a7081fc5af25f1, type: 3}
-  ClockTick: {fileID: 8300000, guid: ce41d2ab790a77f47ba0344f57ca5f78, type: 3}
   lightOffScary: {fileID: 8300000, guid: 798db49efbd2bbe4ba0e10fc8f0a1ef0, type: 3}
   randomSpooks:
   - {fileID: 8300000, guid: d1056e1ca5904bb40923d66375ef5065, type: 3}
