@@ -1,8 +1,8 @@
-Overview
+Overview:
 Flicker is a high-tension, atmospheric horror maze-runner developed in Unity. Players must navigate an ever-shifting dark void while being pursued by a relentless,
 invisible entity. Your only defense is a light that freezes time.
 
-Core Mechanics
+Core Mechanics:
 The Light: Press Spacebar to emit a 3-second burst of light. This freezes the game world, allowing you to plan your route and spot pickups.
 
 The Monster: The monster is only audible (breathing) and visible (faint glow) when the lights are off. Turning the lights on reveals the maze but
@@ -29,14 +29,14 @@ Ensure the Universal Render Pipeline (URP) is active for the Light2D effects to 
 
 Open Scenes/MainMenu and press Play.
 
-Controls
+Controls:
 WASD / Arrow Keys: Movement
 
 Spacebar: Toggle Light(Time-Stop)
 
 Mouse: Navigate UI Menus
 
-Credits
+Credits:
 Game Design & Programming: Louise Lee
 
 Art: Hand-drawn backgrounds and sprites by Louise Lee
