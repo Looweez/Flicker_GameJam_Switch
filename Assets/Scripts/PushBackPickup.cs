@@ -15,11 +15,11 @@ public class PushBackPickup : MonoBehaviour
             {
                 Vector2 pushDirection = (monster.transform.position - other.transform.position).normalized;
                 monster.transform.position += (Vector3)(pushDirection * pushDistance);
-                Debug.Log("BEGONE GHOST!");
+                Debug.Log("fuckoff ghost");
             }
             else 
             {
-                Debug.LogWarning("Pickup hit, but couldn't find an object with tag 'Monster'!");
+                Debug.LogWarning("Pickup hit but couldn't find an object with tag 'Monster'");
             }
 
             Destroy(gameObject);

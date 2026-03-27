@@ -43,7 +43,7 @@ public class MenuController : MonoBehaviour
         yield return new WaitForSecondsRealtime(0.2f);
 
         // CRITICAL FIX: Reset the static level back to 1
-        currentLevel = 1; 
+        GameManager.currentLevel = 1;
         
         Time.timeScale = 1f; 
         UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name);

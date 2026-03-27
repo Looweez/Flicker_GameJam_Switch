@@ -558,8 +558,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 225.5
-  m_fontSizeBase: 225.5
+  m_fontSize: 238.7
+  m_fontSizeBase: 238.7
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -967,6 +967,9 @@ MonoBehaviour:
   lightSwitch: {fileID: 8300000, guid: ed2b74872cf68974ca6b920c72acafa1, type: 3}
   pickupSound: {fileID: 8300000, guid: a01317820884235429e081c9e0939ff5, type: 3}
   monsterBreath: {fileID: 8300000, guid: 9e651700a42b7e9428a7081fc5af25f1, type: 3}
+  ClockTick: {fileID: 0}
+  lightOffScary: {fileID: 0}
+  randomSpooks: []
 --- !u!4 &1518353993
 Transform:
   m_ObjectHideFlags: 0

@@ -20,13 +20,16 @@ public class MonsterAI : MonoBehaviour
     {
         GameObject p = GameObject.FindGameObjectWithTag("Player");
         if (p != null) player = p.transform;
-    
+
         sr = GetComponent<SpriteRenderer>();
-        
-        // Level 1: 2.7 | Level 5: 3.5 | Level 10: 4.5
-        moveSpeed = 0.8f + (GameManager.currentLevel * 0.2f);
-        
         monsterLight = GetComponentInChildren<Light2D>();
+
+        // 1. Calculate the speed based on level
+        float calculatedSpeed = 0.8f + (GameManager.currentLevel * 0.2f);
+
+        // 2. Cap it at 2.4
+        // Mathf.Min returns the smallest of the two numbers
+        moveSpeed = Mathf.Min(calculatedSpeed, 2.4f);
 
         StartCoroutine(GhostlyFlicker());
     }

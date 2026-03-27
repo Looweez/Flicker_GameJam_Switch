@@ -32,7 +32,7 @@ public class GameManager : MonoBehaviour
         }
 
         if (highScoreText != null)
-            highScoreText.text = "BEST: " + savedHighScore;
+            highScoreText.text = "HIGH SCORE: " + "\n"+ savedHighScore;
     }
     
 }
