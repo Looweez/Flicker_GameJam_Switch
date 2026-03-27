@@ -3,34 +3,21 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    // Keeping this static so MazeGenerator can read it across scenes
     public static int currentLevel = 1;
-    public static int highScore = 1;
     public TextMeshProUGUI levelText;
-    public TextMeshProUGUI highScoreText;
 
     void Start()
     {
-        // Load the high score from memory (default to 1 if it doesn't exist)
-        highScore = PlayerPrefs.GetInt("HighScore", 1);
         UpdateUI();
     }
     
     void UpdateUI()
     {
-        if (levelText != null) levelText.text = "LEVELS CLEARED " + "\n" + currentLevel;
-        if (highScoreText != null) highScoreText.text = "Best: " + highScore;
+        // Subtract 1 if you want it to show "Levels Cleared" 
+        // (If they are on Level 1, they have cleared 0)
+        if (levelText != null) 
+            levelText.text = "LEVELS CLEARED: " + "\n" + (currentLevel - 1);
     }
-
-    // Call this when the player dies
-    public static void ResetGame()
-    {
-        // Check if we set a new record before resetting
-        if (currentLevel > highScore)
-        {
-            highScore = currentLevel;
-            PlayerPrefs.SetInt("HighScore", highScore);
-            PlayerPrefs.Save();
-        }
-        currentLevel = 1;
-    }
+    
 }

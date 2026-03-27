@@ -22,8 +22,7 @@ public class MonsterAI : MonoBehaviour
         if (p != null) player = p.transform;
     
         sr = GetComponent<SpriteRenderer>();
-
-        // SCALE SPEED: Base speed of 2.5 + 0.2 per level
+        
         // Level 1: 2.7 | Level 5: 3.5 | Level 10: 4.5
         moveSpeed = 1.2f + (GameManager.currentLevel * 0.2f);
         

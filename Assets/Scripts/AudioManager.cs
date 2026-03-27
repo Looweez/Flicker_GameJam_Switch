@@ -40,7 +40,7 @@ public class AudioManager : MonoBehaviour
         while (true)
         {
             // Use UnityEngine.Random to clear the ambiguity
-            float waitTime = UnityEngine.Random.Range(5f, 30f);
+            float waitTime = UnityEngine.Random.Range(10f, 35f);
         
             // Since the light pauses time (Time.timeScale = 0), 
             // use WaitForSecondsRealtime so the spooky sounds keep counting

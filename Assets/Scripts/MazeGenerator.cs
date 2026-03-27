@@ -30,7 +30,6 @@ public class MazeGenerator : MonoBehaviour
 
     void Start()
     {
-
         StartCoroutine(SetupMazeRoutine());
     }
 
@@ -92,8 +91,7 @@ public class MazeGenerator : MonoBehaviour
         // This fixes the "shifted corner" issue
         Camera.main.transform.position = new Vector3(bounds.center.x, bounds.center.y, -10f);
     }
-
-    // This is the function that was missing!
+    
     void GenerateMaze()
     {
         maze = new int[width, height];

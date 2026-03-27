@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using UnityEngine.Rendering.Universal;
+
 public class LightManager : MonoBehaviour
 {
     public static LightManager Instance;
@@ -21,7 +22,6 @@ public class LightManager : MonoBehaviour
     
     [Header("References")]
     public Light2D mazeGlobalLight; 
-    
 
     [Header("State")]
     public bool isLightOn = false;
@@ -124,11 +124,19 @@ public class LightManager : MonoBehaviour
         GameObject monster = GameObject.FindGameObjectWithTag("Monster");
         if (monster != null)
         {
-            // Toggle Visibility
+            // 1. Toggle the Sprite (Visibility)
             SpriteRenderer sr = monster.GetComponent<SpriteRenderer>();
             if (sr != null) sr.enabled = shouldBeActive;
 
-            // Toggle Breathing Audio
+            // 2. Toggle the Monster's personal Light
+            // We check 'InChildren' in case the light is a child of the monster
+            var monsterLight = monster.GetComponentInChildren<UnityEngine.Rendering.Universal.Light2D>();
+            if (monsterLight != null) 
+            {
+                monsterLight.enabled = shouldBeActive;
+            }
+
+            // 3. Toggle the Breathing Audio
             AudioSource monsterAudio = monster.GetComponent<AudioSource>();
             if (monsterAudio != null)
             {
