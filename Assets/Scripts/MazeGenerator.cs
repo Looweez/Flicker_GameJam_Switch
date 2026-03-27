@@ -35,42 +35,16 @@ public class MazeGenerator : MonoBehaviour
 
     IEnumerator SetupMazeRoutine()
     {
-        // 1. Generate the maze first
         GenerateMaze(); 
     
-        // Wait for the tilemap to finish placing tiles
+        // Wait for one frame to let the Tilemap settle
         yield return new WaitForEndOfFrame();
     
-        // 2. Place the player, monster, and items
+        // Simple, clean object placement
         PlaceObjects();
-    
-        // 3. Fit the camera and background once
         FitCameraToMaze();
-        //ScaleBackground();  //removed
     }
     
-    /*void ScaleBackground()
-    {
-        if (backgroundSR == null) return;
-
-        // 1. Get the actual world-space size of the maze (handles the 1.5 cell size automatically)
-        tilemap.CompressBounds();
-        Bounds bounds = tilemap.localBounds;
-
-        // 2. Center the background on the actual center of the tiles
-        backgroundSR.transform.position = new Vector3(bounds.center.x, bounds.center.y, 5f);
-
-        // 3. Get the sprite's size in its own local units
-        float spriteWidth = backgroundSR.sprite.bounds.size.x;
-        float spriteHeight = backgroundSR.sprite.bounds.size.y;
-
-        // 4. Calculate scale by dividing the Maze Bounds by the Sprite's Size
-        // We add +3f here as a "safety buffer" so the background overlaps the edges slightly
-        float targetWidth = bounds.size.x + 3f;
-        float targetHeight = bounds.size.y + 3f;
-
-        backgroundSR.transform.localScale = new Vector3(targetWidth / spriteWidth, targetHeight / spriteHeight, 1f);
-    }*/
     
     void FitCameraToMaze()
     {
@@ -136,6 +110,7 @@ public class MazeGenerator : MonoBehaviour
 
     void DrawWalls()
     {
+        tilemap.ClearAllTiles();
         for (int x = 0; x < width; x++)
         {
             for (int y = 0; y < height; y++)

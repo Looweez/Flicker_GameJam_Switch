@@ -15,7 +15,7 @@ public class PushBackPickup : MonoBehaviour
             {
                 Vector2 pushDirection = (monster.transform.position - other.transform.position).normalized;
                 monster.transform.position += (Vector3)(pushDirection * pushDistance);
-                Debug.Log("fuckoff ghost");
+                Debug.Log("push ghost");
             }
             else 
             {
