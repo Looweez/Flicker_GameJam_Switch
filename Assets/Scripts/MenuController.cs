@@ -13,7 +13,8 @@ public class MenuController : MonoBehaviour
     public void StartGame()
     {
         WaitForSeconds wait = new WaitForSeconds(0.2f);
-        SceneManager.LoadScene(1); // Loads the first game level
+        //SceneManager.LoadScene(1); // changed to fade scene
+        SceneFader.Instance.FadeToScene(1);
     }
 
     public void QuitGame()
@@ -43,10 +44,13 @@ public class MenuController : MonoBehaviour
         yield return new WaitForSecondsRealtime(0.2f);
 
         // CRITICAL FIX: Reset the static level back to 1
+        
+        SceneFader.Instance.FadeToScene(SceneManager.GetActiveScene().buildIndex);
         GameManager.currentLevel = 1;
         
         Time.timeScale = 1f; 
-        UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name);
+        //UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name); //changed to scene fade
+        
     }
 
     public void LoadMainMenu()
