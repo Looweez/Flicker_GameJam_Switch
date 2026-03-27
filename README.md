@@ -3,10 +3,10 @@ Flicker is a high-tension, atmospheric horror maze-runner developed in Unity. Pl
 invisible entity. Your only defense is a light that freezes time.
 
 Core Mechanics:
-The Light: Press Spacebar to emit a 3-second burst of light. This freezes the game world, allowing you to plan your route and spot pickups.
+The Light: Press Spacebar to emit a burst of light. This freezes the game world, allowing you to plan your route and spot pickups.
 
 The Monster: The monster is only audible (breathing) and visible (faint glow) when the lights are off. Turning the lights on reveals the maze but
-hides the hunter.
+hides the monster.
 
 Ramping Difficulty: Every level cleared increases the monster's speed (up to a balanced cap of 2.4), forcing faster decision-making.
 
