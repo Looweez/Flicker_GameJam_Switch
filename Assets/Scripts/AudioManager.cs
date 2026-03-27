@@ -14,7 +14,6 @@ public class AudioManager : MonoBehaviour
     public AudioClip lightSwitch;
     public AudioClip pickupSound;
     public AudioClip monsterBreath;
-    public AudioClip ClockTick;
     public AudioClip lightOffScary;
     public AudioClip[] randomSpooks;
 
