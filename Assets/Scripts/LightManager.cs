@@ -27,6 +27,7 @@ public class LightManager : MonoBehaviour
     public bool isLightOn = false;
     public bool canTurnOnLight = true;
     private float timer = 0f;
+    private int lastSecondTracked;
 
     void Awake() { Instance = this; }
     
@@ -50,16 +51,28 @@ public class LightManager : MonoBehaviour
         if (isLightOn)
         {
             timer += Time.unscaledDeltaTime;
-            
+        
+            // Mathf.CeilToInt turns 4.8 into 5, 3.2 into 4, etc.
+            int remaining = Mathf.CeilToInt(lightDuration - timer);
+
             if (timerText != null)
             {
-                float remaining = Mathf.Ceil(lightDuration - timer);
                 timerText.text = remaining.ToString();
+            }
+
+            // --- THE TICK LOGIC ---
+            // If the current whole second is lower than the last one we tracked
+            if (remaining < lastSecondTracked && remaining > 0)
+            {
+                // Play the switch noise for every second
+                AudioManager.instance.PlaySFX(AudioManager.instance.lightSwitch);
+            
+                // Update the tracker so it doesn't play again until the next second
+                lastSecondTracked = remaining;
             }
 
             if (timer >= lightDuration)
             {
-                // Instead of just turning off, we start the flicker
                 StartCoroutine(FlickerAndTurnOff());
             }
         }
@@ -87,14 +100,61 @@ public class LightManager : MonoBehaviour
 
     void SetLightState(bool on)
     {
+        if (on) {
+            AudioManager.instance.PlaySFX(AudioManager.instance.lightSwitch);
+            // Reset the tracker to the max duration when light starts
+            lastSecondTracked = Mathf.CeilToInt(lightDuration); 
+        } else {
+            AudioManager.instance.PlaySFX(AudioManager.instance.lightOffScary);
+        }
+
         isLightOn = on;
         timer = 0;
-        
+    
         if (mazeGlobalLight != null)
             mazeGlobalLight.intensity = on ? 1f : 0f;
-        
-        // Resume/Pause time
+    
+        UpdateMonsterState(!on); 
+
         Time.timeScale = on ? 0f : 1f;
+    }
+    
+    void UpdateMonsterState(bool shouldBeActive)
+    {
+        GameObject monster = GameObject.FindGameObjectWithTag("Monster");
+        if (monster != null)
+        {
+            // Toggle Visibility
+            SpriteRenderer sr = monster.GetComponent<SpriteRenderer>();
+            if (sr != null) sr.enabled = shouldBeActive;
+
+            // Toggle Breathing Audio
+            AudioSource monsterAudio = monster.GetComponent<AudioSource>();
+            if (monsterAudio != null)
+            {
+                if (shouldBeActive) monsterAudio.Play();
+                else monsterAudio.Stop();
+            }
+        }
+    }
+    
+    void ToggleMonsterPresence(bool visible)
+    {
+        GameObject monster = GameObject.FindGameObjectWithTag("Monster");
+        if (monster != null)
+        {
+            // Hide/Show the sprite
+            SpriteRenderer sr = monster.GetComponent<SpriteRenderer>();
+            if (sr != null) sr.enabled = visible;
+
+            // Stop/Start the breathing
+            AudioSource audio = monster.GetComponent<AudioSource>();
+            if (audio != null)
+            {
+                if (visible) audio.Play();
+                else audio.Stop();
+            }
+        }
     }
 
     IEnumerator CooldownRoutine()

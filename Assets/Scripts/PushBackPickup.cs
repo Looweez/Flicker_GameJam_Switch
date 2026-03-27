@@ -9,6 +9,7 @@ public class PushBackPickup : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             GameObject monster = GameObject.FindGameObjectWithTag("Monster");
+            AudioManager.instance.PlaySFX(AudioManager.instance.pickupSound);
             
             if (monster != null)
             {
