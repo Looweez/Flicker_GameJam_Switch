@@ -21,7 +21,7 @@ Run Flicker.exe.
 To Develop (Unity):
 Clone this repository:
 
-git clone https://github.com/YourUsername/Flicker.git
+git clone https://github.com/Looweez/Flicker.git
 
 Open the project in Unity 2022.3 LTS (or newer).
 
