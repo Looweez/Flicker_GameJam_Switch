@@ -254,7 +254,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minAlpha: 0.2
   maxAlpha: 0.6
-  moveSpeed: 1.2
+  moveSpeed: 0.8
   minIntensity: 0
   maxIntensity: 0.8
 --- !u!95 &2034445135505057519

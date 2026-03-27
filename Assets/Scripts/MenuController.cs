@@ -1,4 +1,5 @@
 using System.Collections;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -6,6 +7,7 @@ public class MenuController : MonoBehaviour
 {
     public GameObject gameOverPanel; // Only assign this in the GameScene
     public static int currentLevel = 1;
+    
 
     // --- Main Menu Functions ---
     public void StartGame()
@@ -35,18 +37,14 @@ public class MenuController : MonoBehaviour
     
     IEnumerator RestartRoutine()
     {
-        // 1. Play the click sound immediately
         if (AudioManager.instance != null)
-        {
             AudioManager.instance.PlaySFX(AudioManager.instance.buttonClick);
-        }
 
-        // 2. Wait for 0.2 seconds (RealTime because the game is paused!)
-        // This gives the sound enough time to play its initial "pop"
         yield return new WaitForSecondsRealtime(0.2f);
 
-        // 3. Reset and Load
-        currentLevel = 1;
+        // CRITICAL FIX: Reset the static level back to 1
+        currentLevel = 1; 
+        
         Time.timeScale = 1f; 
         UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name);
     }

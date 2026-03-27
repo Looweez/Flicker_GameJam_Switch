@@ -8,7 +8,7 @@ public class MonsterAI : MonoBehaviour
     public float minAlpha = 0.2f;
     public float maxAlpha = 0.6f;
     
-    public float moveSpeed = 2.5f; // Adjust as needed
+    public float moveSpeed = 0.8f; // Adjust as needed
     private Transform player;
     
     // Inside your MonsterAI class...
@@ -24,7 +24,7 @@ public class MonsterAI : MonoBehaviour
         sr = GetComponent<SpriteRenderer>();
         
         // Level 1: 2.7 | Level 5: 3.5 | Level 10: 4.5
-        moveSpeed = 1.2f + (GameManager.currentLevel * 0.2f);
+        moveSpeed = 0.8f + (GameManager.currentLevel * 0.2f);
         
         monsterLight = GetComponentInChildren<Light2D>();
 
